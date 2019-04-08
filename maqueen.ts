@@ -78,22 +78,22 @@ namespace maqueen{
         alreadyInit=1
     }
   
-    // //% weight=62
-    // //% blockGap=50
-    // //% mutate=objectdestructuring
-    // //% mutateText=Packeta
-    // //% mutateDefaults="myparam:message"
-    // //% blockId=IR_callbackUser block="on obloq received"
-    // export function IR_callbackUser(maqueencb: (packet: Packeta) => void) {
-    //     maqueenInit()
-    //     IR_callback(() => {
-    //         const packet = new Packeta();
-    //         packet.mye = maqueene;
-    //         maqueenparam=getParam();
-    //         packet.myparam = maqueenparam;
-    //         maqueencb(packet)
-    //     });
-    // }
+    //% weight=62
+    //% blockGap=50
+    //% mutate=objectdestructuring
+    //% mutateText=Packeta
+    //% mutateDefaults="myparam:message"
+    //% blockId=IR_callbackUser block="on obloq received"
+    export function IR_callbackUser(maqueencb: (packet: Packeta) => void) {
+        maqueenInit()
+        IR_callback(() => {
+            const packet = new Packeta();
+            packet.mye = maqueene;
+            maqueenparam=getParam();
+            packet.myparam = maqueenparam;
+            maqueencb(packet)
+        });
+    }
     
     //% weight=10
     //% blockId=IR_read block="read IR"
@@ -112,22 +112,25 @@ namespace maqueen{
     //% blockId=ultrasonic_sensor block="sensor unit|%unit"
     //% weight=95
     export function sensor(unit: PingUnit, maxCmDistance = 500): number {
-        // send pulse
+        // send pulse  basic.pause=sleep control.waitMicros=delay
         pins.setPull(DigitalPin.P1, PinPullMode.PullNone);
         pins.digitalWritePin(DigitalPin.P1, 0);
-        basic.pause(2);
+        control.waitMicros(2);
         pins.digitalWritePin(DigitalPin.P1, 1);
-        basic.pause(1);
+        control.waitMicros(10);
         pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.setPull(DigitalPin.P2, PinPullMode.PullUp);
         
+        
+
         // read pulse
         let d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 42);
         console.log("Distance: " + d/42);
         
-        basic.pause(200)
+        basic.pause(50)
 
         switch (unit) {
-            case PingUnit.Centimeters: return Math.round(d / 42);
+            case PingUnit.Centimeters: return d / 42;
             default: return d ;
         }
     }

@@ -25,31 +25,29 @@
 
 
     declare enum RemoteButton {
-    Power = 0x00,
-    VolUp = 0x01,
-    FuncStop = 0x02,
-    LeftTwo = 0x04,
-    Suspended = 0x05,
-    RightTwo = 0x06,
-    Down = 0x08,
-    VolDown = 0x09,
-    Up = 0x0a,
-    Zero = 0x0c,
-    EQ = 0x0d,
-    StRept = 0x0e,
-    One = 0x10,
-    Two = 0x11,
-    Three = 0x12,
-    Four = 0x14,
-    Five = 0x15,
-    Six = 0x16,
-    Seven = 0x18,
-    Eight = 0x19,
-    Nine = 0x1a,
+	  Power = 0x0,
+	  Up = 0x1,
+	  Left = 0x2,
+	  Right = 0x3,
+	  Down = 0x4,
+	  Light = 0x5,
+	  BEEP = 0x6,
+	  Pause = 0x7,
+	  Setting = 0x8,
+	  TLeft = 0x9,
+	  TRight = 0x50,
+	  NUM0 = 0xB0,
+	  NUM1 = 0x08,
+	  NUM2 = 0x88,
+	  NUM3 = 0x48,
+	  NUM4 = 0x28,
+	  NUM5 = 0xA8,
+	  NUM6 = 0x68,
+	  NUM7 = 0x18,
+	  NUM8 = 0x98,
+	  NUM9 = 0x58,
     }
-    
-
-declare namespace maqueenIR {
+declare namespace MiJia_IR {
 }
 
 // Auto-generated. Do not edit. Really.

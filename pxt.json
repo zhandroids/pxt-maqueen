@@ -4,7 +4,9 @@
     "description": "米加机器人",
     "license": "MIT",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "pxt-IRremote":"github:zhandroids/mijia-pxt-ir",
+        "pxt-MuVisionSensor":"github:zhandroids/pxt-MuVisionSensor"
     },
     "files": [
         "maqueen.ts",

@@ -6,7 +6,7 @@
     "dependencies": {
         "core": "*",
         "pxt-MuVisionSensor":"github:zhandroids/pxt-MuVisionSensor",
-        "mijia-pxt-ir":"github:zhandroids/mijia-pxt-ir"
+        "pxt-IRremote":"github:zhandroids/pxt-IRremote"
 
     },
     "files": [

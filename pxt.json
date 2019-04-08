@@ -5,18 +5,13 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "pxt-MuVisionSensor":"github:zhandroids/pxt-MuVisionSensor"
+        "pxt-MuVisionSensor":"github:zhandroids/pxt-MuVisionSensor",
+        "mijia-pxt-ir":"github:zhandroids/mijia-pxt-ir"
+
     },
     "files": [
         "maqueen.ts",
         "enums.d.ts",
-        "shims.d.ts",
-        "maqueenIR.cpp",
-        "ReceiverIR.cpp",
-        "ReceiverIR.h",
-        "RemoteIR.h",
-        "TransmitterIR.cpp",
-        "TransmitterIR.h",
         "_locales/zh/maqueen-strings.json"
     ],
     "testFiles": [

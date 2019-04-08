@@ -57,31 +57,6 @@ namespace maqueen{
         turnOff=0x00
     }
 
-    /**
-     * initialises local variablesssss
-     */
-    //% blockId=ir_init
-    //% block="connect ir receiver to %pin" shim=MiJia_IR::init
-    function init(pin: Pins): void;
-  
-    /**
-     * button pushed.
-     */
-    //% blockId=ir_received_left_event
-    //% block="on |%btn| button pressed" shim=MiJia_IR::onPressEvent
-    function onPressEvent(btn: RemoteButton, body: () => void): void;
-
-
-    
-    function maqueenInit():void{
-        if(alreadyInit==1){
-            return
-        }
-        alreadyInit=1
-    }
-  
-
-    
     //% blockId=ultrasonic_sensor block="sensor unit|%unit"
     //% weight=95
     export function sensor(unit: PingUnit, maxCmDistance = 500): number {

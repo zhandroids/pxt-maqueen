@@ -8,10 +8,8 @@
     },
     "files": [
         "maqueen.ts",
-        "shims.d.ts",
         "enums.d.ts",
         "maqueenIR.cpp",
-        "ir.cpp",
         "ReceiverIR.cpp",
         "ReceiverIR.h",
         "RemoteIR.h",

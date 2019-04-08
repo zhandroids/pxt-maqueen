@@ -14,7 +14,7 @@ MicroSeconds
 }
 
 
-//% weight=10 color=#008B00 icon="\uf136" block="maqueen"
+//% weight=10 color=#008B00 icon="\uf136" block="mijiaSmart"
 namespace maqueen{
   
     export class Packeta {

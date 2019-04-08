@@ -78,22 +78,22 @@ namespace maqueen{
         alreadyInit=1
     }
   
-    //% weight=62
-    //% blockGap=50
-    //% mutate=objectdestructuring
-    //% mutateText=Packeta
-    //% mutateDefaults="myparam:message"
-    //% blockId=IR_callbackUser block="on obloq received"
-    export function IR_callbackUser(maqueencb: (packet: Packeta) => void) {
-        maqueenInit()
-        IR_callback(() => {
-            const packet = new Packeta();
-            packet.mye = maqueene;
-            maqueenparam=getParam();
-            packet.myparam = maqueenparam;
-            maqueencb(packet)
-        });
-    }
+    // //% weight=62
+    // //% blockGap=50
+    // //% mutate=objectdestructuring
+    // //% mutateText=Packeta
+    // //% mutateDefaults="myparam:message"
+    // //% blockId=IR_callbackUser block="on obloq received"
+    // export function IR_callbackUser(maqueencb: (packet: Packeta) => void) {
+    //     maqueenInit()
+    //     IR_callback(() => {
+    //         const packet = new Packeta();
+    //         packet.mye = maqueene;
+    //         maqueenparam=getParam();
+    //         packet.myparam = maqueenparam;
+    //         maqueencb(packet)
+    //     });
+    // }
     
     //% weight=10
     //% blockId=IR_read block="read IR"

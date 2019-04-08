@@ -73,7 +73,6 @@ namespace maqueenIR {
   //% block="on |%btn| button pressed"
   void onPressEvent(RemoteButton btn, Action body) {
     //if(actions.find(btn) == actions.end()) actions[btn] = new vector();
-    IRcallbackNum=(int)btn;
     actions[btn].push_back(body);
   }
 
@@ -81,93 +80,11 @@ namespace maqueenIR {
 
   void onReceivable(){
     int x = rx->getData(&fmt, buf, 32 * 8);
-    /*
-    uBit.serial.send(".");
-    uBit.serial.send(buf[0]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[1]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[2]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[3]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[4]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[5]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[6]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[7]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[8]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[9]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[10]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[11]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[12]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[13]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[14]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[15]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[16]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[17]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[18]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[19]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[20]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[21]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[22]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[23]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[24]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[25]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[26]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[27]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[28]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[29]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[30]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[31]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[32]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[33]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[34]);
-    uBit.serial.send(".");
-    uBit.serial.send(buf[35]);
-    uBit.serial.send(".end");
-    */
-    //if(actions.find((RemoteButton)buf[2]) == actions.end()) return;
+    if(actions.find((RemoteButton)buf[2]) == actions.end()) return;
     now = tsb.read_ms();
     if(now - lastact[(RemoteButton)buf[2]] < 100) return;
     lastact[(RemoteButton)buf[2]] = now;
-    msg=(int)buf[2];
-    uBit.serial.send(IRcallbackNum);
-    if(IRcallbackNum < 1){
-      return;
-    }
-    for(int i=1;i<=IRcallbackNum;i++){
-      cA(actions[(RemoteButton)i]);  
-    }    
+    cA(actions[(RemoteButton)buf[2]]); 
   }
 
   void monitorIR(){
@@ -184,28 +101,9 @@ namespace maqueenIR {
   */
   //% blockId=ir_init
   //% block="connect ir receiver to %pin"
-  void initIR(Pins pin){
+  void init(Pins pin){
     rx = new ReceiverIR((PinName)pin);
     tsb.start(); //interrupt timer for debounce
     create_fiber(monitorIR);
   }
-  //% 
-  int getParam(){
-    return msg;
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }

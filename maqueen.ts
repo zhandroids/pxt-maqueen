@@ -57,57 +57,30 @@ namespace maqueen{
         turnOff=0x00
     }
 
-    //% advanced=true shim=maqueenIR::initIR
-    function initIR(pin: Pins):void{
-        return
-    }
-    //% advanced=true shim=maqueenIR::onPressEvent
-    function onPressEvent(btn: RemoteButton,body: Action):void{
-        return
-    }
-    //% advanced=true shim=maqueenIR::getParam
-    function getParam():number {
-        return 0
-    }
+    /**
+     * initialises local variablesssss
+     */
+    //% blockId=ir_init
+    //% block="connect ir receiver to %pin" shim=MiJia_IR::init
+    function init(pin: Pins): void;
+  
+    /**
+     * button pushed.
+     */
+    //% blockId=ir_received_left_event
+    //% block="on |%btn| button pressed" shim=MiJia_IR::onPressEvent
+    function onPressEvent(btn: RemoteButton, body: () => void): void;
+
+
     
     function maqueenInit():void{
         if(alreadyInit==1){
             return
         }
-        initIR(Pins.P16)
         alreadyInit=1
     }
   
-    //% weight=62
-    //% blockGap=50
-    //% mutate=objectdestructuring
-    //% mutateText=Packeta
-    //% mutateDefaults="myparam:message"
-    //% blockId=IR_callbackUser block="on obloq received"
-    export function IR_callbackUser(maqueencb: (packet: Packeta) => void) {
-        maqueenInit()
-        IR_callback(() => {
-            const packet = new Packeta();
-            packet.mye = maqueene;
-            maqueenparam=getParam();
-            packet.myparam = maqueenparam;
-            maqueencb(packet)
-        });
-    }
-    
-    //% weight=10
-    //% blockId=IR_read block="read IR"
-    export function IR_read():number{
-        maqueenInit()
-        return getParam()
-    }
-    
-   
-    function IR_callback(a: Action): void{
-        maqueencb=a
-        IrPressEvent+=1
-        onPressEvent(IrPressEvent,maqueencb)
-    }
+
     
     //% blockId=ultrasonic_sensor block="sensor unit|%unit"
     //% weight=95

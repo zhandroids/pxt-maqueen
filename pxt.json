@@ -12,7 +12,8 @@
     "files": [
         "maqueen.ts",
         "enums.d.ts",
-        "_locales/zh/maqueen-strings.json"
+        "_locales/zh/pxt-mijiaSmart-jsdoc-strings.json",
+        "_locales/zh/pxt-mijiaSmart-strings.json"
     ],
     "testFiles": [
         "tests.ts"

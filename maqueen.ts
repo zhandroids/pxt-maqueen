@@ -1,7 +1,4 @@
-let maqueencb: Action
-let maqueenmycb: Action
-let maqueene        = "1"
-let maqueenparam    = 0
+
 let alreadyInit=0
 let IrPressEvent=0
 const MOTER_ADDRESSS = 0x10
@@ -17,11 +14,6 @@ MicroSeconds
 //% weight=10 color=#008B00 icon="\uf136" block="mijiaSmart"
 namespace maqueen{
   
-    export class Packeta {
-        public mye: string;
-        public myparam: number;
-    }
-    
     export enum aMotors{
         //% blockId="M1" block="M1"
         M1=0,

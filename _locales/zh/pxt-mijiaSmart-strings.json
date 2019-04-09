@@ -1,0 +1,21 @@
+{
+  "PingUnit.Centimeters|block": "cm",
+  "PingUnit.MicroSeconds|block": "μs",
+  "maqueen.Dir.CCW|block": "CCW",
+  "maqueen.Dir.CW|block": "CW",
+  "maqueen.LED.LEDLeft|block": "LEDLeft",
+  "maqueen.LED.LEDRight|block": "LEDRight",
+  "maqueen.LEDswitch.turnOff|block": "turnOff",
+  "maqueen.LEDswitch.turnOn|block": "turnOn",
+  "maqueen.MotorRun|block": "Motor|%index|dir|%Dir|speed|%speed",
+  "maqueen.Patrol.PatrolLeft|block": "PatrolLeft",
+  "maqueen.Patrol.PatrolRight|block": "PatrolRight",
+  "maqueen.aMotors.M1|block": "M1",
+  "maqueen.aMotors.M2|block": "M2",
+  "maqueen.motorStopAll|block": "Motor Stop All",
+  "maqueen.motorStop|block": "Motor stop|%motors",
+  "maqueen.readPatrol|block": "Read Patrol|%patrol",
+  "maqueen.sensor|block": "sensor unit|%unit",
+  "maqueen.writeLED|block": "led|%led|ledswitch|%ledswitch",
+  "{id:category}Maqueen": "Maqueen"
+}
